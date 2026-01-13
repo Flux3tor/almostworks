@@ -1,0 +1,66 @@
+body {
+    background: #f4e7c5;
+    font-family: "Cosmic Sans MS", cursive;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 48px;
+    text-shadow: 3px 3px red;
+}
+
+#tagline {
+    font-style: italic;
+    color: brown;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #fff2cc;
+    border: 4px solid #b87333;
+    width: 320px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 12px 12px orange;
+}
+
+input {
+    width: 90%;
+    margin: 8px;
+    padding: 6px;
+    font-size: 14px;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#submit {
+    background: lime;
+}
+
+#cancel {
+    background: red;
+    color: white;
+}
+
+#progress {
+    width: 100%;
+    height: 18px;
+    background: #ddd;
+    margin: 10px 0;
+    border: 1px solid black;
+}
+
+#bar {
+    height: 100%;
+    width: 0%;
+    background: purple;
+}
