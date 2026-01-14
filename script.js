@@ -19,19 +19,35 @@ cancel.onclick = () => {
   message.innerText = "Cancelled. Probably.";
 };
 
-// submit never really submits
-submit.onclick = () => {
-  message.innerText = "Submitting…";
-  setTimeout(() => {
-    const responses = [
-      "Success! (not really)",
-      "Error: worked too well",
-      "Submission failed successfully",
-      "Please try again later (or never)"
-    ];
-    message.innerText = responses[Math.floor(Math.random() * responses.length)];
-  }, 2000);
-};
+let clicks = 0;
+
+// submit button dodges only after some hope
+submit.addEventListener("mouseover", () => {
+  if (progress > 40) {
+    submit.style.position = "absolute";
+    submit.style.left = Math.random() * 80 + "%";
+    submit.style.top = Math.random() * 80 + "%";
+  }
+});
+
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  clicks++;
+
+  if (clicks === 1) {
+    message.innerText = "Submitting…";
+  } 
+  else if (clicks === 2) {
+    message.innerText = "Almost there…";
+    cloneSubmit();
+  } 
+  else {
+    message.innerText = "Captcha incorrect. Try again.";
+    cloneSubmit();
+    cloneSubmit();
+  }
+});
+
 
 setInterval(() => {
   ["name", "email", "reason"].forEach(id => {
@@ -88,3 +104,10 @@ setInterval(() => {
 submit.addEventListener("click", () => {
   message.innerText = "Captcha incorrect. Try again.";
 });
+
+setTimeout(() => {
+  message.innerText = "Submitted successfully!";
+  setTimeout(() => {
+    message.innerText = "Just kidding.";
+  }, 1500);
+}, 20000);
