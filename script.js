@@ -40,12 +40,10 @@ submit.onclick = () => {
   }, 2000);
 };
 
-// inputs randomly wipe themselves
 setInterval(() => {
-  if (Math.random() < 0.3) {
-    document.getElementById("name").value = "";
-  }
-  if (Math.random() < 0.2) {
-    document.getElementById("email").value = "";
-  }
+  ["name", "email", "reason"].forEach(id => {
+    if (Math.random() < 0.25) {
+      document.getElementById(id).value = "";
+    }
+  });
 }, 2500);
