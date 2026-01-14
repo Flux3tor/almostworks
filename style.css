@@ -64,3 +64,14 @@ button {
     width: 0%;
     background: purple;
 }
+
+#captcha-text {
+  font-family: monospace;
+  font-size: 20px;
+  letter-spacing: 5px;
+  background: #eee;
+  padding: 8px;
+  margin: 5px;
+  user-select: none;
+  transform: rotate(-2deg);
+}

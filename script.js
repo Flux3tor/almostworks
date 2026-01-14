@@ -5,13 +5,6 @@ const message = document.getElementById("message");
 
 let progress = 0;
 
-// submit button dodges
-submit.addEventListener("mouseover", () => {
-  submit.style.position = "absolute";
-  submit.style.left = Math.random() * 70 + "%";
-  submit.style.top = Math.random() * 70 + "%";
-});
-
 // fake loading bar
 setInterval(() => {
   progress += Math.random() * 15;
@@ -47,3 +40,51 @@ setInterval(() => {
     }
   });
 }, 2500);
+
+function cloneSubmit() {
+  const original = document.getElementById("submit");
+  const clone = original.cloneNode(true);
+
+  clone.style.position = "absolute";
+  clone.style.left = Math.random() * 80 + "%";
+  clone.style.top = Math.random() * 80 + "%";
+
+  clone.innerText = "Submit";
+  
+  clone.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById("message").innerText =
+      "Nice try. Wrong submit button.";
+    cloneSubmit(); // spawns MORE
+  });
+
+  document.body.appendChild(clone);
+}
+
+// spawn a new one when user clicks original
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  cloneSubmit();
+});
+
+const captchaInput = document.getElementById("captcha");
+const captchaText = document.getElementById("captcha-text");
+
+function randomCaptcha() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let text = "";
+  for (let i = 0; i < 5; i++) {
+    text += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return text;
+}
+
+// constantly change captcha
+setInterval(() => {
+  captchaText.innerText = randomCaptcha();
+}, 1500);
+
+// block submission forever
+submit.addEventListener("click", () => {
+  message.innerText = "Captcha incorrect. Try again.";
+});
