@@ -33,4 +33,4 @@ No frameworks. Just bad decisions.
 ## Live site
 https://tush.is-a.dev/almostworks
 
-![alt text](image.png)
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/df6f0812-c2d2-444b-b756-2e5300ed6647" />
