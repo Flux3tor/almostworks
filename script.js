@@ -111,3 +111,17 @@ setTimeout(() => {
     message.innerText = "Just kidding.";
   }, 1500);
 }, 20000);
+
+setTimeout(() => {
+  document.querySelectorAll("input").forEach(input => {
+    input.value = "";
+  });
+  progress = 0;
+  bar.style.width = "0%";
+}, 22000);
+
+document.addEventListener("mousemove", () => {
+  if (progress > 60 && Math.random() < 0.05) {
+    window.scrollBy(0, Math.random() > 0.5 ? 80 : -80);
+  }
+});
